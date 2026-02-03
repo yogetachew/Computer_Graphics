@@ -1,0 +1,31 @@
+This is a program that shows how to use P5 and creating interaction between the user and the canvas. 
+
+The four Modes are 
+
+o Mode 1: Dynamic Background
+o Mode 2: Animated Object
+o Mode 3: Mouse Interaction
+o Mode 4: Pattern Generation
+
+mode 1 
+- changes color based on the position of the mouse
+- get map values for r, g, b based on mouse position
+- red increases left to right
+- green increases top to bottom 
+- blue decreases top to bottom
+
+mode 2 
+- creates moving circle that bounces off on the edges
+- changes color when you switch mode and get back to mode 2
+
+mode 3
+- it creates shapes when you press and drag the mouse on the canvas
+- there is an option of cirlce or rectange
+- the size of the shape change based on the mouse position
+
+mode 4
+- the whole canvas os filled with shape fillid with diffenet color.
+- each circle have random fill color
+
+To use this program you just have to run it and press 1,2,3,or 4 to get to the different modes
+You can press 0 to get back to the menu
