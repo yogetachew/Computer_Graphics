@@ -27,7 +27,7 @@ function setup() {
   serial.list(); // List available ports
   
   //serial.open('/dev/ttyUSB0'); // Adjust port as needed
-  serial.open('COM12');
+  serial.open('COM9');
   
 
   serial.list((ports) => {
