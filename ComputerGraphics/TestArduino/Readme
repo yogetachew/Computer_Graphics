@@ -1,0 +1,16 @@
+For this lab at first i worked on having a moving yellow stars when the light is bright to make it look
+like sun and a white circles to show the moon which we see at night.
+
+then i got suck on finding a way to change the shape with the light and i found out that i can use the 
+push, translate, pop, beginShape and endShape functions to do that.
+i asked ChatGPT about how to use those functions and it explained to me that
+- push will save the current drawing, 
+- translate will move the origin to (x, y), and 
+- pop will restore everything back
+ - beginShape and endShape will create a custom shape based on the vertices defined in between
+
+after i was almost done i realized that i did the wrong assignmnet so i changed it to have only
+one star and one moon and not make them move.
+
+i was also add a text to show when the port is not connected
+it is a orange text that says "Serial port might be disconnected"
