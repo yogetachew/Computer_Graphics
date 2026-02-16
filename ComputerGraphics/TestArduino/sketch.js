@@ -23,8 +23,9 @@ function setup() {
 function draw() {
   background(0, 30);
   
+  // orange warning if the port is disconnected
   if (lightLevel === 0) {
-    fill(255, 100, 0); // orange warning
+    fill(255, 100, 0); 
     textAlign(CENTER, CENTER);
     textSize(28);
     text("Serial port might be disconnected", width / 2, height / 2);
