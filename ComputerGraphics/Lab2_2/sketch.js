@@ -180,6 +180,8 @@ function drawValueBar() {
 //    b) Draw a filled rectangle from that Y down to barBottom.
   const barTopY = map(latestValue, 0, 255, barBottom, barTop);
   fill(255);
+
+  // draw fill bar from top down to bottom
   rect(barX, barTopY, barWidth, barBottom - barTopY);
 
 }
@@ -187,6 +189,8 @@ function drawValueBar() {
 // Draw a simple line graph of the history array.
 function drawHistoryGraph() {
   // Graph area
+  // leave some space from both left and right edges
+  // same for top and bottom to leave space for labels
   const graphLeft = 150;
   const graphRight = width - 30;
   const graphTop = 70;
@@ -202,10 +206,13 @@ function drawHistoryGraph() {
 //    - Use line() to draw a horizontal line across the graph area.
 //    - Use text() to label 0 near the bottom, 128 in the middle,
 //      and 255 near the top.
+
+// convert 0, 128, and 255 to Y coordinates in the graph area
  const y0   = map(0,   0, 255, graphBottom, graphTop);
   const y128 = map(128, 0, 255, graphBottom, graphTop);
   const y255 = map(255, 0, 255, graphBottom, graphTop);
 
+  // straight line to show 0, 128, and 255
   stroke(80);
   line(graphLeft, y255, graphRight, y255);
   line(graphLeft, y128, graphRight, y128);
@@ -226,12 +233,17 @@ function drawHistoryGraph() {
 //      A common pattern is: x = graphLeft + (i / (MAX_POINTS - 1)) * (graphRight - graphLeft)
 //    - y is again a map of value from 0–255 to graphBottom–graphTop.
 //
+
+// 
  stroke(0, 200, 255);
   noFill();
   beginShape();
   for (let i = 0; i < history.length; i++) {
+    // spread points evenly across the graph area left to right
     const x = graphLeft + (i / (MAX_POINTS - 1)) * (graphRight - graphLeft);
+    // covert the sensor value o a verticak screen position
     const y = map(history[i], 0, 255, graphBottom, graphTop);
+    // draw a connected line through the points
     vertex(x, y);
   }
   endShape();
