@@ -7,6 +7,10 @@ let velocity = 0;
 let targetRadius = 150;
 let k = 0.05; // spring stiffness
 let damping = 0.9;
+let minVal = 0;
+let maxVal = 635; // this what i got on the serial monitor
+let gain = 1.5;
+
 function setup() {
 createCanvas(windowWidth, windowHeight);
 setupSerial(); // your existing serial init
@@ -15,7 +19,13 @@ function draw() {
 background(20);
 // Map pressure to target radius
 // Higher pressure -> larger lung "capacity"
-let sensorTarget = map(latestData, 0, 927, 80, 220);
+let sensorTarget = map(latestData, minVal, maxVal, 80, 220);
+
+// Apply gain
+// find how far the circl wants to move away from normal
+let baseline = 150;
+sensorTarget = baseline + (sensorTarget - baseline) * gain;
+
 sensorTarget = constrain(sensorTarget, 80, 220);
 // Smooth target change a bit (avoid sudden jumps)
 targetRadius = lerp(targetRadius, sensorTarget, 0.1);
